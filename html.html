@@ -10,6 +10,7 @@
 <body>
     <header>
         <a href="#" class="brand">Travel</a>
+        <div class="menu-btn"></div>
         <div class="navigation">
             <div class="navigation-items">
                    <a href="">Home</a>
@@ -23,9 +24,108 @@
         </div>
     </header>
     <section class="home">
+        <video class="video-slide active" src="./assets/video/1.mp4" autoplay  muted loop></video>
+        <video class="video-slide" src="./assets/video/2.mp4" autoplay  muted loop></video>
+        <video class="video-slide" src="./assets/video/3.mp4" autoplay  muted loop></video>
+        <video class="video-slide" src="./assets/video/4.mp4" autoplay  muted loop></video>
+        <video class="video-slide" src="./assets/video/5.mp4" autoplay  muted loop></video>
+        <div class="content active">
+            <h1>Wonderful. <br> <span> Island</span>
+             </h1>
+
+             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia aliquid perspiciatis dicta dolor voluptatibus quis qui. Nemo consequatur pariatur animi sunt labore laudantium sit quaerat dolor consectetur iusto. Repellendus, dolor?</p>
+             <a href="#">Read More</a>
+        </div>
         <div class="content">
-            <h1>Wonderful</h1>
+            <h1>Camping. <br> <span> Enjoy</span>
+             </h1>
+
+             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia aliquid perspiciatis dicta dolor voluptatibus quis qui. Nemo consequatur pariatur animi sunt labore laudantium sit quaerat dolor consectetur iusto. Repellendus, dolor?</p>
+             <a href="#">Read More</a>
+        </div>
+        <div class="content">
+            <h1>Adventures. <br> <span>Off Road</span>
+             </h1>
+
+             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia aliquid perspiciatis dicta dolor voluptatibus quis qui. Nemo consequatur pariatur animi sunt labore laudantium sit quaerat dolor consectetur iusto. Repellendus, dolor?</p>
+             <a href="#">Read More</a>
+        </div>
+        <div class="content">
+            <h1>Road Trip. <br> <span> Together</span>
+             </h1>
+
+             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia aliquid perspiciatis dicta dolor voluptatibus quis qui. Nemo consequatur pariatur animi sunt labore laudantium sit quaerat dolor consectetur iusto. Repellendus, dolor?</p>
+             <a href="#">Read More</a>
+        </div>
+        <div class="content">
+            <h1>Feel Nature. <br> <span> Together</span>
+             </h1>
+
+             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia aliquid perspiciatis dicta dolor voluptatibus quis qui. Nemo consequatur pariatur animi sunt labore laudantium sit quaerat dolor consectetur iusto. Repellendus, dolor?</p>
+             <a href="#">Read More</a>
+        </div>
+        <div class="media-icons">
+            <a href="">
+                <i class="fab fa-facebook-f"></i>
+                
+            </a>
+            <a href="">
+                <i class="fab fa-instagram"></i>
+                
+            </a>
+            <a href="">
+                <i class="fab fa-twitter"></i>
+                
+            </a>
+        </div>
+        <div class="slider-navigation">
+            <div class="nav-btn"></div>
+            <div class="nav-btn"></div>
+            <div class="nav-btn"></div>
+            <div class="nav-btn"></div>
+            <div class="nav-btn"></div>
+
         </div>
     </section>
+    <script type="text/javascript">
+    // javascript
+
+    const menuBtn = document.querySelector(".menu-btn");
+    const navigation = document.querySelector(".navigation");
+
+    menuBtn.addEventListener("click", ()=>{
+        menuBtn.classList.toggle("active")
+        navigation.classList.toggle("active")
+    })
+
+    // javascript for video slider nav
+    const btns = document.querySelectorAll('.nav-btn');
+    const slides = document.querySelectorAll('.video-slide');
+    const contents = document.querySelectorAll('.content');
+
+
+
+    var sliderNav =function(manual){
+
+        btns.forEach((btn)=>{
+            btn.classList.remove("active") 
+        })
+        slides.forEach((slide)=>{
+            slide.classList.remove("active") 
+        })
+        contents.forEach((content)=>{
+            content.classList.remove("active") 
+        })
+        btns[manual].classList.add("active")
+        slides[manual].classList.add("active")
+        contents[manual].classList.add("active")
+    }
+    btns.forEach((btn, i)=>{
+    btn.addEventListener("click",()=>{
+        sliderNav(i)
+    })
+})
+    btn
+    </script>
 </body>
 </html>
