@@ -88,44 +88,53 @@
         </div>
     </section>
     <script type="text/javascript">
-    // javascript
-
-    const menuBtn = document.querySelector(".menu-btn");
-    const navigation = document.querySelector(".navigation");
-
-    menuBtn.addEventListener("click", ()=>{
-        menuBtn.classList.toggle("active")
-        navigation.classList.toggle("active")
-    })
-
-    // javascript for video slider nav
-    const btns = document.querySelectorAll('.nav-btn');
-    const slides = document.querySelectorAll('.video-slide');
-    const contents = document.querySelectorAll('.content');
-
-
-
-    var sliderNav =function(manual){
-
-        btns.forEach((btn)=>{
-            btn.classList.remove("active") 
-        })
-        slides.forEach((slide)=>{
-            slide.classList.remove("active") 
-        })
-        contents.forEach((content)=>{
-            content.classList.remove("active") 
-        })
-        btns[manual].classList.add("active")
-        slides[manual].classList.add("active")
-        contents[manual].classList.add("active")
-    }
-    btns.forEach((btn, i)=>{
-    btn.addEventListener("click",()=>{
-        sliderNav(i)
-    })
-})
-    btn
+        // javascript
+    
+        const menuBtn = document.querySelector(".menu-btn");
+        const navigation = document.querySelector(".navigation");
+    
+        menuBtn.addEventListener("click", () => {
+            menuBtn.classList.toggle("active");
+            navigation.classList.toggle("active");
+        });
+    
+        // javascript for video slider nav
+        const btns = document.querySelectorAll('.nav-btn');
+        const slides = document.querySelectorAll('.video-slide');
+        const contents = document.querySelectorAll('.content');
+    
+        let currentSlide = 0;
+    
+        var sliderNav = function (manual) {
+            btns.forEach((btn) => {
+                btn.classList.remove("active");
+            });
+            slides.forEach((slide) => {
+                slide.classList.remove("active");
+            });
+            contents.forEach((content) => {
+                content.classList.remove("active");
+            });
+            btns[manual].classList.add("active");
+            slides[manual].classList.add("active");
+            contents[manual].classList.add("active");
+        };
+    
+        const autoSlide = () => {
+            currentSlide = (currentSlide + 1) % btns.length;
+            sliderNav(currentSlide);
+        };
+    
+        // Set interval for automatic slider change
+        const intervalId = setInterval(autoSlide, 5000); // Change 5000 to the desired interval in milliseconds
+    
+        btns.forEach((btn, i) => {
+            btn.addEventListener("click", () => {
+                clearInterval(intervalId); // Stop auto sliding when manual navigation occurs
+                sliderNav(i);
+            });
+        });
     </script>
+    
 </body>
 </html>
